@@ -1,14 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
 
+//import Main from "./components/Main";
+//import Form from "./components/Form";
+import Header from "./components/Header";
+import * as serviceWorker from "./serviceWorker";
+//import "bootstrap/dist/css/bootstrap.css";
+//import "jquery/src/jquery";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+//import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+//import ComposeComponent from "./components/ComposeComponent";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

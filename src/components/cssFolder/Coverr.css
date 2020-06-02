@@ -1,0 +1,28 @@
+div {
+  border: 1px solid red;
+}
+
+nav {
+  background-color: mediumturquoise;
+}
+
+a {
+  color: white;
+}
+
+h2 {
+  color: mediumturquoise;
+}
+
+#gap {
+  height: 70vh;
+}
+
+#h2,
+h5 {
+  text-align: center;
+}
+
+h5 {
+  font-size: 0.3em;
+}
