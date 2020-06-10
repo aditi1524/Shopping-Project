@@ -1,11 +1,4 @@
 import React, { Component } from "react";
-
-//import style from "./Head.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Main from "./Main";
-import Footer from "./Footer";
-
 export default class Header extends Component {
   render() {
     return (
@@ -57,14 +50,6 @@ export default class Header extends Component {
             </div>
           </div>
         </nav>
-        <div>
-          <input type="search" className="w-50" />
-          <span className="bg-primary rounded-right p-3">
-            <FontAwesomeIcon icon={faSearch} color="white" size="1x" />
-          </span>
-        </div>
-        <Main />
-        <Footer />
       </React.Fragment>
     );
   }

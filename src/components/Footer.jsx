@@ -1,48 +1,33 @@
 import React, { Component } from "react";
+import { object } from "./FooterData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faTwitter,
-  faYoutube,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
-export default class Footer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      brand: ["Adidas", "Puma", "Reebok", "Nike"],
-      company: [
-        "About Us",
-        "Career",
-        "Find a store",
-        "Rules and terms",
-        "Sitemap",
-      ],
-      help: [
-        "Contact us",
-        "Money Refund",
-        "Order status",
-        "Shipping info",
-        "Open dispute",
-      ],
-      account: ["user login", "User Register", "Account Setting", "My Orders"],
-    };
-  }
 
+export default class Footer extends Component {
+  heading = "nav-header font-weight-bold text-muted";
   loop = (value, head) => {
+    console.log("length = ", value[0].length);
     return (
       <div>
-        <h4 className="nav-header font-weight-bold text-muted">{head}</h4>
-        {value.map((item) => (
-          <ul className="list-unstyled">
-            <li key={item}>{item}</li>
-          </ul>
-        ))}
+        <h4 className={this.heading}>{head}</h4>
+        <ul className="list-unstyled">
+          {typeof value[0] === "object"
+            ? value.map((item, index) => {
+                return (
+                  <li key={item.symbol + index}>
+                    <FontAwesomeIcon icon={item.symbol} color={item.color} />
+                    &nbsp; {item.name}
+                  </li>
+                );
+              })
+            : value.map((item, index) => <li key={value + index}>{item}</li>)}
+        </ul>
       </div>
     );
   };
 
   render() {
+    const val = "col-md col-6";
+
     return (
       <React.Fragment>
         <div className="bg-light">
@@ -50,46 +35,20 @@ export default class Footer extends Component {
             <div className="row">
               {" "}
               {/** External row */}
-              <div className="col-md col-6">
-                {this.loop(this.state.brand, "Brands")}
-              </div>
-              <div className="col-md col-6">
-                {this.loop(this.state.company, "Company")}
-              </div>
-              <div className="col-md col-6">
-                {this.loop(this.state.help, "Help")}
-              </div>
-              <div className="col-md col-6">
-                {this.loop(this.state.account, "Account")}
-              </div>
-              <ul className="list-unstyled m-5 col-md">
-                <h4 className="text-muted">Status</h4>
-                <li>
-                  <FontAwesomeIcon icon={faFacebook} color="blue" />
-                  Facebook
-                </li>
-                <li>
-                  <FontAwesomeIcon icon={faTwitter} color="blue" />
-                  Twitter
-                </li>
-                <li>
-                  {" "}
-                  <FontAwesomeIcon icon={faInstagram} color="blue" />
-                  Instagram
-                </li>
-                <li>
-                  {" "}
-                  <FontAwesomeIcon icon={faYoutube} color="blue" />
-                  Youtube
-                </li>
-              </ul>
+              <div className={val}>{this.loop(object.brand, "Brands")}</div>
+              <div className={val}>{this.loop(object.company, "Company")}</div>
+              <div className={val}>{this.loop(object.help, "Help")}</div>
+              <div className={val}>{this.loop(object.account, "Account")}</div>
+              {this.loop(object.status, "Status")}
             </div>
           </div>
 
-          <p>&copy; 2020 Your Company Name</p>
-          <p className="m-2">
-            info@pixsellz.io +25454665785 Street name 123, Avanue abc
-          </p>
+          <div className="text-center mt-5">
+            <p>&copy; 2020 Your Company Name</p>
+            <p className="m-2">
+              info@pixsellz.io +25454665785 Street name 123, Avanue abc
+            </p>
+          </div>
         </div>
       </React.Fragment>
     );
